@@ -33,7 +33,7 @@ public class Order {
         return this.price;
     }
 
-    public Cart getProducts(){
+    public Cart getCart(){
         return this.cart;
     }
 
