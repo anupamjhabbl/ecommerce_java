@@ -46,9 +46,15 @@ public class Cart {
         System.out.println("Product with ID " + productId + " not found in the cart.");
     }
 
-//     public Order placeOrder(User user, Address ad){
-//     // Implementation of placing an order
-//     }
+    public void placeOrder(User user, Address address){
+        Address headAddress = new Address("c455","mahua","Vaisali","Bihar",844126);
+        double price = user.cart.calculatePrice() + ShippingChargeCalc.calculateCharge(headAddress, address) - DiscountCalc.calculateDiscount(user.cart);
+        Order order = new Order("hdhbcb", address, price, false, user.cart, user);
+        // payment is done
+        order.changePaidStatus();
+        System.out.println("Your order is placed");
+        user.appendHistory(order);
+    }
 
     // No need for a separate method to find product index, as ArrayList provides indexOf()
 

@@ -17,6 +17,8 @@ public class Order {
         this.user = user;
     }
 
+    
+
     public String getOrderId() {
         return this.orderId;
     }
@@ -39,5 +41,9 @@ public class Order {
 
     public boolean isPaid(){
         return this.paid;
+    }
+
+    public void changePaidStatus(){
+        paid = !paid;
     }
 }

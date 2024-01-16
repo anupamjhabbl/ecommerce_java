@@ -84,6 +84,8 @@ public class User{
             System.out.println("orderId: "+order.getOrderId()+"\n"+"Address: "+order.getAddress().city+" "+order.getAddress().pincode+"\n"+"Price: "+order.getPrice()+"\n"+"username: "+order.getUser().username);
             System.out.println("Items: ");
             order.getCart().showCart();
+            System.out.println("-------------------------------------------");
         }
+       
     }
 }
