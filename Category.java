@@ -6,7 +6,7 @@ public class Category {
     private String description;
     private Category[] sub_cat;
 
-    public Category(int id, String type, String description, Category[] sub_cat) {
+    public Category(int id, String type, String description) {
         this.id = id;
         this.type = type;
         this.description = description;

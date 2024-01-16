@@ -2,14 +2,17 @@ package commerce_java;
 
 public class Cart {
     private Product[] productList;
+    private int productCount;
 
-    public Cart(Product[] productList) {
-        this.productList = productList;
+    public Cart() {
+        this.productList = new Product[1000];
+        this.productCount = 0;
     }
 
     public void showCart() {
         System.out.println("Cart Contents:");
-        for (Product product : productList) {
+        for (int i=0;i<this.productCount;i++) {
+            Product product = productList[i];
             System.out.println("Product ID: " + product.getProductId());
             System.out.println("Product Name: " + product.getProductName());
             System.out.println("Price: $" + product.getPrice());
@@ -19,10 +22,15 @@ public class Cart {
 
     public float calculatePrice() {
         float totalPrice = 0;
-        for (Product product : productList) {
+        for (int i=0;i<this.productCount;i++) {
+            Product product = productList[i];
             totalPrice += product.getPrice();
         }
         return totalPrice;
+    }
+
+    public void addProduct(Product product){
+        this.productList[this.productCount++] = product;
     }
 
     public void removeProduct(int productId) {
@@ -37,6 +45,7 @@ public class Cart {
 
             // Update the cart
             productList = updatedCart;
+            this.productCount--;
 
             System.out.println("Product removed successfully.");
         } else {

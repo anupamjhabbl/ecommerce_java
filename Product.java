@@ -5,14 +5,14 @@ public class Product {
     private String productName;
     private double price;
 
-    private Category cat;
+    private Category category;
 
     // Constructors
-    public Product(int productId, String productName, double price, Category cat) {
+    public Product(int productId, String productName, double price, Category category) {
         this.productId = productId;
         this.productName = productName;
         this.price = price;
-        this.cat = cat;
+        this.category = category;
     }
 
     // Getters and Setters
@@ -41,10 +41,16 @@ public class Product {
     }
 
     public Category getCat() {
-        return cat;
+        return category;
     }
 
-    public void setCat(Category cat) {
-        this.cat = cat;
+    public void setCat(Category category) {
+        this.category = category;
+    }
+
+    public void addProduct(Cart cart){
+        Product product = new Product(this.productId, this.productName, this.price, this.category);
+        cart.addProduct(product);
     }
 }
+
