@@ -71,4 +71,17 @@ public class Inventory {
         }
     }
 
+    public Product findProduct(int productid){
+        Category catg = prodcat.get(productid);
+        ArrayList<ItemQuantity> arr = stock.get(catg.getId());
+        if (arr!=null){
+            for (int i=0;i<arr.size();i++){
+                if (arr.get(i).product.getProductId()==productid){
+                    return arr.get(i).product;
+                }
+            }
+        }
+        return null;
+    }
+
 }

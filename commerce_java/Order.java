@@ -17,7 +17,13 @@ public class Order {
         this.user = user;
     }
 
-    
+    public void showOrder(){
+        System.out.println("OrderId: "+orderId);
+        System.out.println("Address: "+address.houseno+", "+address.city+", "+address.district+", "+address.state+", "+address.pincode);
+        System.out.println("price: "+price);
+        System.out.println("Products: ");
+        cart.showCart();
+    }
 
     public String getOrderId() {
         return this.orderId;

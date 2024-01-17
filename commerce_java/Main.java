@@ -1,6 +1,5 @@
 package commerce_java;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -145,7 +144,19 @@ public class Main {
                             System.out.println("To leave thr order click 2");
                             int choiceOrderPlace = sc.nextInt();
                             if (choiceOrderPlace==1){
-                                // place the order
+                                System.out.print("Enter your houseno: ");
+                                String houseno = sc.next();
+                                System.out.print("Enter your city: ");
+                                String city = sc.next();
+                                System.out.print("Enter your city: ");
+                                String district = sc.next();
+                                System.out.print("Enter your state: ");
+                                String state = sc.next();
+                                System.out.print("Enter your pinocde: ");
+                                int pincode = sc.nextInt();
+                                Address address = new Address(houseno, city, district, state, pincode);
+                                Order order = cart.placeOrder(user1, address);
+                                order.showOrder();
                             }
                             else{
                                 continue;
