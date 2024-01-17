@@ -105,19 +105,20 @@ public class Main {
                         {
                             System.out.println("Login Successfull! ");
                             System.out.println("*******************************************");
-                            System.out.println("Enter Category id:");
-
-                            int catid = sc.nextInt();
-                            ArrayList<ItemQuantity> productList = inventory.stock.get(catid);
-                            for (ItemQuantity i : productList)
-                            {
-                                i.product.showProduct();
-                                System.out.println(i.quantity);
-                            }
+                            
 
                             Cart cart = new Cart();
                             user1.cart = cart;
                             while (true){
+                                System.out.println("Enter Category id:");
+
+                                int catid = sc.nextInt();
+                                ArrayList<ItemQuantity> productList = inventory.stock.get(catid);
+                                for (ItemQuantity i : productList)
+                                {
+                                    i.product.showProduct();
+                                    System.out.println(i.quantity);
+                                }
                                 int choice5;
                                 System.out.println("Enter 1 for adding a product to cart");
                                 System.out.println("Enter any other key for exiting");
