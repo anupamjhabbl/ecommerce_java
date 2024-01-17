@@ -2,22 +2,17 @@ package commerce_java;
 
 public class Main {
     public static void main(String[] args){
-        // Address address = new Address("t455", "abc", "def", "ghi", 23445);
-        // Cart cart = new Cart();
-        User user = new User("anupamjhabbl","fordGT350","anupamjhabbl@gmail.com");
-        Address address = new Address("T128","subhash Nagr","new delhi","delhi",110013);
-        Cart cart = new Cart();
-        Category electronics = new Category(344, "electronics", "This holds items related to electronics.");
-        Product product1 = new Product(1233, "mouse", 23.44, electronics);
-        Product product2 = new Product(1528, "monitor", 1200.23, electronics);
-        cart.addProduct(product1);
-        cart.addProduct(product2);
-        user.cart = cart;
-        cart.placeOrder(user, address);
-        cart.placeOrder(user, address);
-        user.showHistory();
-
-        // Order obj = new Order("123", address, 345.566, false, cart, user);
-        // System.out.println(obj.getPrice());
+        Inventory inventory = new Inventory();
+        Category electronics = new Category(1234, "electronics", "dhhdhd");
+        Category clothing = new Category(4321, "clothing", "dhhdhd");
+        inventory.addCategory(electronics);
+        Product p1 = new Product(1, "mouse", 23.45, electronics);
+        Product p2 = new Product(2,"monitor",3338, electronics);
+        inventory.addProduct(p2, 2);
+        inventory.addProduct(p1, 3);
+        Product p3 = new Product(3,"shirt",3338, clothing);
+        inventory.addProduct(p3, 2);
+        inventory.removeProduct(p1, -1);
+        System.out.println(inventory.stock.get(1234).size());
     }
 }
