@@ -4,14 +4,17 @@ import java.util.*;
 
 public class Inventory {
     public HashMap<Integer, ArrayList<ItemQuantity>> stock;
-
+    public  HashMap<Integer, Category> prodcat;
     public Inventory(){
         this.stock = new HashMap<>();
+        this.prodcat  = new HashMap<>();
     }
 
     public void addProduct(Product product, int quantity){
+
         Category catg = product.getCategory();
         ArrayList<ItemQuantity> arr = stock.get(catg.getId());
+        prodcat.put(product.getProductId(), catg);
         if (arr==null){
             ArrayList<ItemQuantity> newArr = new ArrayList<>();
             ItemQuantity item = new ItemQuantity(product, quantity);
@@ -25,12 +28,11 @@ public class Inventory {
         }
     }
 
-    public void removeProduct(Product product, int quantity){
-        Category catg = product.getCategory();
+    public void removeProduct(int productid, Category catg, int quantity){
         ArrayList<ItemQuantity> arr = stock.get(catg.getId());
         if (arr!=null){
             for (int i=0;i<arr.size();i++){
-                if (arr.get(i).product.getProductId()==product.getProductId()){
+                if (arr.get(i).product.getProductId()==productid){
                     if (quantity==-1){
                         arr.remove(i);
                     }
@@ -58,4 +60,8 @@ public class Inventory {
     public void removeCategory(Category category){
         stock.remove(category.getId());
     }
+
+    public void showProduct()
+    {}
+
 }

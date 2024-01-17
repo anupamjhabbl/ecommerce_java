@@ -48,6 +48,15 @@ public class Product {
         this.category = category;
     }
 
+    public void showProduct()
+    {
+        System.out.println("Product Id: " + getProductId());
+        System.out.println("Product Name: " + getProductName());
+        System.out.println("Product Price: "+ getPrice());
+        System.out.println("Category Name: "+ category.getType());
+
+    }
+
     public void addProduct(Cart cart){
         Product product = new Product(this.productId, this.productName, this.price, this.category);
         cart.addProduct(product);

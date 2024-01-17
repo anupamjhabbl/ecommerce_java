@@ -35,7 +35,7 @@ public class User{
         this.historyCount++;
     }
 
-    public void register(){
+    public void register(String username, String email, String password){
         try{
             String text = username+"~"+email+"~"+password+"\n";
             FileWriter filewriter = new FileWriter("./commerce_java/userlist.txt", true);
@@ -62,15 +62,11 @@ public class User{
             }
             br.close();
             System.out.println("User not found");
-            return new User(this.username, this.password, this.email);
+            return null;
         }
         catch(IOException e){
             System.out.println(e);
-            return new User(this.username, this.password, this.email);
-        }
-        catch(Exception e){
-            System.out.println(e);
-            return new User(this.username, this.password, this.email);
+            return null;
         }
     }
 
