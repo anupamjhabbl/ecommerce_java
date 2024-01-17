@@ -61,7 +61,14 @@ public class Inventory {
         stock.remove(category.getId());
     }
 
-    public void showProduct()
-    {}
+    public void showProduct(){
+        for ( Integer key : stock.keySet() ) {
+            ArrayList<ItemQuantity> arr = stock.get(key);
+            for (ItemQuantity item : arr){
+                item.product.showProduct();
+                System.out.println("Quantity: "+item.quantity);
+            }
+        }
+    }
 
 }

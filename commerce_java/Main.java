@@ -96,7 +96,9 @@ public class Main {
 
                     if(choice3 == 1)
                     {
+                        System.out.println("Enter your username: ");
                         String username = sc.next();
+                        System.out.println("Enter your password");
                         String password = sc.next();
 
                         User user1  = user.login(username, password);
@@ -104,7 +106,7 @@ public class Main {
                         {
                             System.out.println("Login Successfull! ");
                             System.out.println("*******************************************");
-                            System.out.println("Enter Category name:");
+                            System.out.println("Enter Category id:");
 
                             int catid = sc.nextInt();
                             ArrayList<ItemQuantity> productList = inventory.stock.get(catid);
@@ -112,8 +114,41 @@ public class Main {
                             {
                                 i.product.showProduct();
                                 System.out.println(i.quantity);
+                            }
 
+                            Cart cart = new Cart();
+                            user1.cart = cart;
+                            while (true){
+                                int choice5;
+                                System.out.println("Enter 1 for adding a product to cart");
+                                System.out.println("Enter any other key for exiting");
+                                choice5 = sc.nextInt();
+                                if (choice5==1){
+                                    System.out.print("Enter productId of product that you want to buy: ");
+                                    int productId = sc.nextInt();
+                                    Product pr = inventory.findProduct(productId);
+                                    if (pr==null){
+                                        System.out.println("This product doesn't exist");
+                                        continue;
+                                    }
+                                    pr.addProduct(cart);
+                                    inventory.removeProduct(productId, pr.getCategory(), 1);
+                                }
+                                else{
+                                    break;
+                                }
+                            }
 
+                            System.out.println("Your Cart is: ");
+                            cart.showCart();
+                            System.out.println("To place your order click 1");
+                            System.out.println("To leave thr order click 2");
+                            int choiceOrderPlace = sc.nextInt();
+                            if (choiceOrderPlace==1){
+                                // place the order
+                            }
+                            else{
+                                continue;
                             }
 
                          break;
@@ -121,9 +156,12 @@ public class Main {
                     }
                     else if(choice3 == 2)
                     {
-                        String username = "vansh";
-                        String password = "vansh123";
-                        String email = "vanshp123@gmail.com";
+                        System.out.println("Enter Username: ");
+                        String username = sc.next();
+                        System.out.println("Enter your password");
+                        String password = sc.next();
+                        System.out.println("Enter your email");
+                        String email = sc.next();
                         user.register(username, email, password);
 
                         System.out.println("Register Successfull! ");
